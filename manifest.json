@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Anki Clipper for YouTube",
+  "version": "1.0",
+  "description": "Embed YouTube videos with timestamps into Anki cards.",
+  "permissions": ["declarativeContent", "scripting"],
+  "action": {
+    "default_icon": "src/icons/favicon-16x16.png",
+    "default_popup": "src/popup/popup.html"
+  },
+  "icons": {
+    "16": "src/icons/favicon-16x16.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["src/content_scripts/content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
